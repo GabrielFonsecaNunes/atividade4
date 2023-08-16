@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Atividade 4</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="section">
+    <h1>WizardsVideo</h1>
+    <p>Danilo Misura de Oliveira          - 11006514</p>
+    <p>Gabriel da Fonseca Nunes           - 11201921456<p>
+    <p>Thiago Vinicius                    - 112017<p>
+  </div>
+
+  <div class="section">
+    <h1 class="section-title">Anexos</h1>
+    <p class="section-content">
+    <p> 
+
+    </p>
+    <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> Tutorial Filtragem Imagens OpenCV </a> 
+    </p>
+    <p>
+      <a href="https://docs.opencv.org/4.x/dc/dd3/tutorial_gausian_median_blur_bilateral_filter.html"> 
+        Material Complementar Filtragem Imagens OpenCV </a>
+    </p>
+  </div>
+
+  <h1>Atividade 4</h1>
+
+  <div class="section">
+    <h2 class="section-title">Introdução</h2>
+    <p class="section-content">
+      O processamento de vídeo desempenha um papel fundamental em diversas áreas, 
+      como visão computacional, realidade virtual, jogos, vigilância por vídeo, entre outros. 
+      <br>O foco deste laboratório é discutir sobre métodos de filtragem a partir
+      a biblioteca OpenCV e aplica-las em imagem e vídeo.<br> 
+    </p>
+    <p class="section-content">
+      <h2 class="section-title">Objetivos</h2>
+      <ul class="section-content">
+        <li>Aplicar cada um dos tipos de filtragem a partir 
+          <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> Tutorial Filtragem Imagens OpenCV </a>  
+        </li>
+        <li>
+          Com o programa que faz a leitura da webcam, realize cada um dos experimentos de filtragem do tutorial, na imagem de entrada.
+          Salve os arquivos de imagem filtrada gerados através do próprio programa. 
+        </li>
+      </ul>
+    </p>
+      
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Fundamentos Básicos</h2>
+    <p class="section-content">
+
+      <p class="section-content">
+        O processamento de vídeo envolve a aplicação de técnicas para manipular, analisar e extrair informações de 
+        sequências de imagens em movimento. Para realizar essas tarefas, utilizaremos a biblioteca OpenCV, uma poderosa 
+        ferramenta para processamento de imagens e vídeos.       
+      </p>
+      <p class="section-content">        
+        As principais operações básicas que iremos explorar incluem a leitura de imagens e vídeos a partir de arquivos,
+        visualização de imagens em janelas, salvamento de imagens em arquivos, captura de imagens da câmera e gravação de vídeos da câmera.
+        Além disso, iremos aprender sobre diferentes aspectos, como a velocidade de exibição das imagens em vídeo, a alteração da imagem
+        exibida em tempo real, e a realização de operações de processamento de imagem nos programas estudados       
+      </p>
+
+      <p class="section-content">        
+        Antes de iniciar o trabalho com processamento, é imprescindível obter um melhor entendimento 
+        de alguns conceitos fundamentais relacionados ao processamento de vídeo. 
+      </p>
+
+      <p class="section-content">
+        <b>Imagem e Vídeo</b>: Imagens são representações visuais de objetos, cenas ou fenômenos capturados através de dispositivos ópticos, 
+        como câmeras fotográficas ou sensores de imagem. Elas são compostas por uma matriz de elementos chamados de pixels, que são os
+        pontos básicos de informação que compõem a imagem.
+
+        Cada pixel contém informações sobre a cor e a intensidade luminosa em um determinado ponto da imagem. Essas informações são armazenadas
+        e processadas digitalmente, permitindo a exibição, manipulação e análise das imagens em dispositivos eletrônicos, como computadores, 
+        smartphones, tablets e telas de visualização.
+        
+        As imagens podem ser classificadas em diferentes tipos, como imagens em preto e branco (tons de cinza), imagens em escala de cores 
+        (RGB - vermelho, verde e azul) ou imagens em outros espaços de cores, como YUV ou HSV. Além disso, as imagens podem ser estáticas, 
+        representando uma única cena, ou sequenciais, formando um vídeo.
+        
+        No contexto do processamento de vídeo, as imagens são essenciais para realizar diversas tarefas, como detecção de objetos,
+        reconhecimento de padrões, análise de movimento, segmentação de objetos, entre outras aplicações. O processamento das imagens
+        permite extrair informações relevantes e realizar transformações que podem melhorar sua qualidade, ressaltar características
+        ou facilitar a interpretação dos dados visuais.  
+      </p>  
+      
+      <p class="section-content">
+        <b>Pixel e Matriz de Pixels</b>: Um pixel é o menor elemento em uma imagem ou quadro de vídeo e representa um valor
+        numérico que define sua cor ou intensidade. Uma matriz de pixels é uma grade bidimensional de pixels que compõem uma imagem ou quadro de vídeo.
+      </p>
+
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Materiais e Métodos</h2>
+    <p class="section-content">      
+      Este relatório foi divido em duas partes. Nesta primeira parte do laboratório, aplicaremos o métodos de filtragem de Média, Gaussiano, Mediano e Bilateral nas imagens do Lab1 - parte 3 e salvaremos a imagens para comparação. 
+      Em seguida, na parte 2, com o programa que faz a leitura da webcam aplicaremos filtros de Média, Gaussiano, Mediano e Bilateral e salvaremos a imagens para comparação. 
+    </p>
+    <h2 class="section-title">Materiais</h2>
+    <p class="section-content">
+      A seguir, apresentamos os materiais utilizados em conjunto com suas respectivas descrições, a fim de criar um ambiente de trabalho adequado para a realização da 
+      atividade prática no laboratório de Processamento de Vídeo. Esses materiais possibilitam a aquisição, manipulação e processamento eficiente e preciso de imagens e vídeos:
+    </p class="section-content">  
+    <p class="section-content">
+      <ul class="section-content">
+        <li class="item">Sistema Operacional Ubuntu 22.04: O sistema operacional Ubuntu 22.04 é uma distribuição Linux amplamente reconhecida pela sua estabilidade e facilidade de uso. Sua utilização
+          no laboratório proporciona um ambiente propício para a execução dos programas e tarefas relacionados ao processamento de vídeo.</li>
+        <li class="item">Webcam Digital Usb: Essa webcam é utilizada para realizar aquisição de imagens em tempo real durante as atividades práticas do laboratório.</li>
+        <li class="item">Linguagem: Python é uma linguagem de programação popular e de alto nível, amplamente utilizada no processamento de vídeo devido à sua facilidade de uso e à 
+          disponibilidade de bibliotecas poderosas. Neste laboratório, é utilizada a versão 3.10 ou superior do Python.</li>
+        <li class="item">Bibliotecas OpenCV (4.7), Numpy (1.19.5): O OpenCV (Open Source Computer Vision) é uma biblioteca de código aberto amplamente utilizada para o processamento de
+          imagem e vídeo. O Numpy é uma biblioteca para Python que oferece suporte a arrays multidimensionais e funções matemáticas avançadas. Ambas as bibliotecas são utilizadas
+          para manipular e processar imagens e vídeos no laboratório.</li>
+        <li class="item">IDE Visual Studio Code: Visual Studio Code: O Visual Studio Code é uma IDE (Integrated Development Environment) popular e de código aberto, que fornece um ambiente de
+          desenvolvimento completo para escrever, depurar e executar programas em Python. É a IDE escolhida para o desenvolvimento das atividades práticas durante o laboratório.</li>
+      </ul>
+
+    </p class="section-content"> 
+
+    <h2 class="section-title">Métodos</h2>
+    <p class="section-content">
+      ...
+    </p>
+    
+    <div class="title">Titulo Imagem</div>
+    <div class="code-container" id="component-1">
+      <textarea readonly>
+        codigo
+      </textarea>
+      <button class="copy-button" onclick="copyCode('component-1')">Copiar</button>
+    </div>
+    <div class="title">Diagrama de Blocos L1_1_img.py</div>
+    <div>
+      <!-- <img src="./img/Diagrama_L1_img.py.png" alt="Diagrama" class="fluxograma"> -->
+    </div>
+    <div class="section-content">
+      Comentario... resultados
+    </div>
+  </div>
+  <div class="section">
+    <h2 class="section-title">Resultados e Análises</h2>
+    <p class="section-content">
+      Durante a execução das atividades propostas, foram obtidos os seguintes resultados:
+    </p>
+    <p class="section-content">
+      ...
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Conclusões e Comentários Finais</h2>
+    <p class="section-content">
+      Neste laboratório, ... .
+    </p>
+  </div>
+
+  <script src="src/script.js"></script>
+
+  <div class="references">
+    <h2 class="references-title">Referências</h2>
+    <ol class="reference-list">
+      <li class="reference-item">OpenCV. "Smoothing Images (OpenCV-Python Tutorials)": <link href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html</li>
+      <li class="reference-item"> MINICHINO, J. HOWSE, J., Learning OpenCV 3 Computer Vision with Python, 2nd Ed, Packt
+        Publishing, 2015</li>
+      <li class="reference-item">Tutorial OpenCV e Python: <link href="https://docs.opencv.org/master/d6/d00/tutorial_py_root.html"> https://docs.opencv.org/master/d6/d00/tutorial_py_root.html  </li>
+      <li class="reference-item">Getting Started with Videos: <link href="https://docs.opencv.org/master/d6/d00/tutorial_py_root.html"> https://docs.opencv.org/4.x/dd/d43/tutorial_py_video_display.html</li>
+      <li class="reference-item">Getting Started with Images: <link href="https://docs.opencv.org/4.x/db/deb/tutorial_display_image.html"> https://docs.opencv.org/4.x/db/deb/tutorial_display_image.html</li>
+    </ol>
+  </div>
+</body>
+
+</html>

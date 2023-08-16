@@ -1,0 +1,35 @@
+Lab_4_Histogramas e Limiarização
+
+(a) Estude a teoria sobre os Histogramas de uma imagem:
+
+Teoria:
+Histograms - 1 : Find, Plot, Analyze !!!
+https://docs.opencv.org/4.x/d1/db7/tutorial_py_histogram_begins.html
+
+(b) Experimentos do laboratório:
+--Estude os exercícios sobre Equalização de Histogramas e sobre Limiarização/Binarização nos dois tutoriais abaixo:
+Histograms - 2: Histogram Equalization
+https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html
+
+Image Thresholding
+https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html
+
+--EXPERIMENTOS:
+
+(1) Desenvolva um programa para fazer a leitura de sua imagem, convertendo para tons de cinza, calcular o histograma, e realizar a equalização do histograma pelo método mais simples. Ao toque de uma tecla, o programa deve salvar a imagem de entrada em cinza e a imagem equalizada, através de comando OpenCV. Salve também as imagens dos gráficos de histograma antes e depois da equalização, através de comando do matplotlib.
+
+Realize este experimento com as imagens individuais, separadamente, de cada integrante do grupo.
+
+
+(2) Outro programa modificando o item (1), agora fazendo a leitura de imagem da webcam.
+Neste caso, o programa deve adicionalmente mostrar uma janela ao vivo com a imagem cinza e o resultado da imagem equalizada.
+
+Realize este experimento com cada integrante do grupo e com um objeto colorido.
+
+
+(3) Estudo da binarização. Desenvolva outro programa modificando o item (1), realizando a limiarização do tutorial pelo método simple.
+
+
+(4) Estudo da equalização nas cores: Desenvolva outro programa modificando o item (1), porém sem converter para cinza, mas agora realizando a equalização nas três cores separadamente, e juntar os canais equalizados na imagem colorida de saída.
+
+-- -- -- -- --
