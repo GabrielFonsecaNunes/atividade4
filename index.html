@@ -19,11 +19,19 @@
     <p> 
 
     </p>
-    <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> Tutorial Filtragem Imagens OpenCV </a> 
+    <a href="https://docs.opencv.org/4.x/d1/db7/tutorial_py_histogram_begins.html"> Histograms - 1 : Find, Plot, Analyze !!! </a> 
     </p>
     <p>
-      <a href="https://docs.opencv.org/4.x/dc/dd3/tutorial_gausian_median_blur_bilateral_filter.html"> 
-        Material Complementar Filtragem Imagens OpenCV </a>
+      <a href="https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html"> 
+        Histograms - 2: Histogram Equalization </a>
+    </p>
+    <p>
+      <a href="https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html"> 
+        Image Thresholding </a>
+    </p>
+    <p>
+      <a href="https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html"> 
+        Repo: Atividade 4 Git Hub </a>
     </p>
   </div>
 
@@ -34,24 +42,17 @@
     <p class="section-content">
       O processamento de vídeo desempenha um papel fundamental em diversas áreas, 
       como visão computacional, realidade virtual, jogos, vigilância por vídeo, entre outros. 
-      <br>O foco deste laboratório é discutir sobre métodos de filtragem a partir
-      a biblioteca OpenCV e aplica-las em imagem e vídeo.<br> 
+      <br>O foco deste laboratório é discutir sobre Histogramas e Métodos de Limiarização<br> 
     </p>
     <p class="section-content">
       <h2 class="section-title">Objetivos</h2>
       <ul class="section-content">
-        <li>Aplicar cada um dos tipos de filtragem a partir 
-          <a href="https://docs.opencv.org/4.x/d4/d13/tutorial_py_filtering.html"> Tutorial Filtragem Imagens OpenCV </a>  
-        </li>
-        <li>
-          Com o programa que faz a leitura da webcam, realize cada um dos experimentos de filtragem do tutorial, na imagem de entrada.
-          Salve os arquivos de imagem filtrada gerados através do próprio programa. 
-        </li>
+        <li>Compreender os Histogramas de Imagem</li>
+        <li>Explorar Equalização de Histogramas</li>
+        <li>Aprender analisar Técnicas de Limiarização/Binarização</li>
       </ul>
     </p>
-      
   </div>
-
   <div class="section">
     <h2 class="section-title">Fundamentos Básicos</h2>
     <p class="section-content">
@@ -97,15 +98,35 @@
         numérico que define sua cor ou intensidade. Uma matriz de pixels é uma grade bidimensional de pixels que compõem uma imagem ou quadro de vídeo.
       </p>
 
+      <p class="section-content">
+        <b>Histograma</b>: Um histograma é uma representação gráfica da distribuição das intensidades de cores ou tons de uma imagem. 
+        Ele mostra a frequência com que cada valor de intensidade aparece na imagem, ou seja, quantos pixels possuem determinado valor 
+        de cor ou tom. Histogramas são frequentemente usados para analisar e entender melhor a composição de uma imagem, como a distribuição
+        de brilho, contraste e variação das intensidades.
+      </p>
+
+      <p class="section-content">
+        <b>Histograma</b>: Um histograma é uma representação gráfica da distribuição das intensidades de cores ou tons de uma imagem. 
+        Ele mostra a frequência com que cada valor de intensidade aparece na imagem, ou seja, quantos pixels possuem determinado valor 
+        de cor ou tom. Histogramas são frequentemente usados para analisar e entender melhor a composição de uma imagem, como a distribuição
+        de brilho, contraste e variação das intensidades.
+      </p>
+
+      <p class="section-content">
+        <b>Limiarização</b>: Ou thresholding é método com função de separar os objetos de interesse da imagem de seus arredores, criando uma imagem binária
+        onde os pixels de interesse estão marcados como brancos (valor 255) e os pixels de fundo são pretos (valor 0).Existem diversos tipos de Limiarização
+        ,segue alguns exemplos de Limiarização: Limiarização Global, Limiarização Adaptativa, Limiarização Otsu e Limiarização por Histograma. 
+      </p>
+      <p class="section-content">
+        <b>Binarização</b>: é um método fundamental no processamento de imagem, onde uma imagem em tons de cinza é convertida em uma imagem binária, composta
+        apenas por pixels pretos e brancos. Nessa imagem binária, os pixels de interesse são representados como brancos (valor máximo, geralmente 255) e os pixels
+        que não fazem parte do objeto de interesse são representados como pretos (valor mínimo, geralmente 0).
+      </p>
     </p>
   </div>
 
   <div class="section">
     <h2 class="section-title">Materiais e Métodos</h2>
-    <p class="section-content">      
-      Este relatório foi divido em duas partes. Nesta primeira parte do laboratório, aplicaremos o métodos de filtragem de Média, Gaussiano, Mediano e Bilateral nas imagens do Lab1 - parte 3 e salvaremos a imagens para comparação. 
-      Em seguida, na parte 2, com o programa que faz a leitura da webcam aplicaremos filtros de Média, Gaussiano, Mediano e Bilateral e salvaremos a imagens para comparação. 
-    </p>
     <h2 class="section-title">Materiais</h2>
     <p class="section-content">
       A seguir, apresentamos os materiais utilizados em conjunto com suas respectivas descrições, a fim de criar um ambiente de trabalho adequado para a realização da 
@@ -128,25 +149,77 @@
     </p class="section-content"> 
 
     <h2 class="section-title">Métodos</h2>
-    <p class="section-content">
-      ...
+    <p class="section-content">      
+      Este relatório foi divido em quadro partes. Nesta primeira parte do laboratório, 1a) Desenvolveremos um programa para fazer a leitura de sua imagem, convertendo para tons de cinza, 
+      calcular o histograma, e realizar a equalização do histograma pelo método mais simples. Ao toque de uma tecla, o programa deve salvar a imagem de entrada em cinza e a imagem equalizada, 
+      através de comando OpenCV. Salve também as imagens dos gráficos de histograma antes e depois da equalização, através de comando do matplotlib.
+      Em seguida, na parte 2, desenvolveremos outro programa para a partir da leitura de imagem com webcam, o programa deve adicionalmente mostrar uma janela ao vivo com a imagem cinza e o resultado da imagem equalizada.
+      Em seguida, na parte 3, desenvolveremos outro programa modificando o item (1), realizando a limiarização do tutorial pelo método simple.
+      Finalmente, na parte 4, desenvolveremos outro programa modificando o item (1), porém sem converter para cinza, mas agora realizando a equalização nas três cores separadamente, e juntar os canais
+      equalizados na imagem colorida de saída.
     </p>
-    
-    <div class="title">Titulo Imagem</div>
+   
+    <div class="title">Programa L4_1a.py</div>
     <div class="code-container" id="component-1">
       <textarea readonly>
-        codigo
+import cv as cv
+import numpy as np
+
+def equalize_image(image):
+    # Convert the image to grayscale
+    gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+    
+    # Equalize the histogram of the grayscale image
+    equalized_image = cv.equalizeHist(gray_image)
+    
+    # Convert the grayscale equalized image to color (3 channels)
+    equalized_image_color = cv.cvtColor(equalized_image, cv.COLOR_GRAY2BGR)
+    
+    return equalized_image_color
+
+# Initialize the webcam
+cap = cv.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    
+    if not ret:
+        break
+    
+    # Perform histogram equalization
+    equalized_frame = equalize_image(frame)
+    
+    # Display the original and equalized images side by side
+    stacked_images = np.hstack((frame, equalized_frame))
+    
+    cv.imshow("Original vs Equalized", stacked_images)
+    
+    if cv.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the webcam and close the windows
+cap.release()
+cv.destroyAllWindows()
       </textarea>
       <button class="copy-button" onclick="copyCode('component-1')">Copiar</button>
     </div>
-    <div class="title">Diagrama de Blocos L1_1_img.py</div>
-    <div>
-      <!-- <img src="./img/Diagrama_L1_img.py.png" alt="Diagrama" class="fluxograma"> -->
-    </div>
+    <div class="title">Original vs Equalized</div>
+
+    <p class="section-content">
+      <img src="./img/Original vs Equalized.jpg">
+    </p>
+
     <div class="section-content">
-      Comentario... resultados
+      No programa acima, estamos capturando o vídeo da webcam, aplicando a equalização de histograma à imagem em tons de cinza convertida da captura da câmera e, em seguida, 
+      convertendo a imagem equalizada de volta para o formato colorido para exibição. A imagem original e a imagem equalizada são exibidas lado a lado em uma única janela. 
+      O loop continua até que a tecla 'q' seja pressionada. 
     </div>
   </div>
+
+
+
+
+
   <div class="section">
     <h2 class="section-title">Resultados e Análises</h2>
     <p class="section-content">
